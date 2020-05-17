@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#Recycle: move files to ~/.trash 
+#If file exist, prepend the time (HHMMSS) to the file name to avoid 
+#overwriting the exisitng file
+
+#Install
+#Simply put the script into one of $PATH's location
+
+
+current="$(pwd)"
+
+for item in "$@"
+do 
+    cd ~/.trash;
+
+    if [ -a "$item" ]
+    then
+        cd "$current"
+        mv -v "$item" ~/.trash/"$(date "+%H%M%S")""$item"
+    else
+        cd "$current"
+        mv -v "$item" ~/.trash
+    fi
+done
+    
