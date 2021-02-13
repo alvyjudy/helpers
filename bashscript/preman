@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# View the man page in the Preview.app
+
+# Installation: place this script in one of the PATH folder
+
+man -t "$@" | open -f -a "/System/Applications.Preview.app"
